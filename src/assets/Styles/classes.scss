@@ -1,0 +1,34 @@
+@import './color.scss';
+//background
+.bg-darkColor{
+    background: $darkColor;
+}
+.bg-darkColor2{
+    background: $darkColor2;
+}
+.bg-secondaryColor1{
+    background: $secondaryColor1;
+}
+.bg-secondaryColor2{
+    background: $secondaryColor2;
+}
+.bg-lightColor{
+    background: $lightColor;
+}
+
+//text
+.text-darkColor{
+    color: $darkColor;
+}
+.text-darkColor2{
+    color: $darkColor2;
+}
+.text-secondaryColor1{
+    color: $secondaryColor1;
+}
+.text-secondaryColor2{
+    color: $secondaryColor2;
+}
+.text-lightColor{
+    color: $lightColor;
+}

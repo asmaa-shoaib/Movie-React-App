@@ -1,0 +1,75 @@
+@import '../../assets/Styles/color.scss';
+
+.movieDetails-section{
+    height: 95vh !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://image.tmdb.org/t/p/w500/j3Z3XktmWB1VhsS8iXNcrR86PXi.jpg');
+    background-position:center ;
+    background-size: cover;
+}
+.movieDetails-section .overlay{
+    background-color: $darkColorwithOpicty;
+}
+.text{
+    font-size: 1rem;
+}
+.userScore{
+    width: 60px;
+    height: 60px;
+    position: relative;
+}
+.rate{
+    font-weight: bold;  
+}
+.userScore::after{
+    content: '';
+    top: 5px;
+    left: 5px;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid $secondaryColor1;
+    border-left: none;
+}
+.reaction .btns{
+}
+.react-btn{
+    width: 30px;
+    height: 30px;
+    border: none;
+    transition: transform .3s;
+}
+.react-btn:hover{
+    transform: scale(1.3);
+}
+.whats-your-vibe button{
+    border-radius: 25px;
+    border: none;
+}
+.whats-your-vibe span{
+    position: relative;
+}
+.whats-your-vibe span::after{ 
+    content: '';
+    top: 100%;
+    left: 0px;
+    position: absolute;
+    width:100%;
+    height: 2px;
+    background-color: $secondaryColor2;
+    
+}
+.action-btns button{
+    color: $lightColor;
+    background-color: $darkColor2;
+    width:  55px;
+    height: 55px;
+}
+
+.tagLine{
+    font-style: italic;
+    color: $lightColor2;
+}
