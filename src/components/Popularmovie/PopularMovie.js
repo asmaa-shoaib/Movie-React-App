@@ -3,11 +3,16 @@ import './Populamovie.scss'
 import axios from "axios";
 import  { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { createSelector } from 'reselect'
 import { Link } from "react-router-dom";
 import AddFav from '../../store/action/AddFav';
-export default function PopularMovie(){
+import FavouriteItem from '../FavouriteItem/FavouriteItem';
+import Favourite from '../Favourite/Favourite';
+export default function PopularMovie(props){
     const [movies,setMovies] =useState([]);
     const [page,setPage] =useState(1);
+
+
     const imgLink="https://image.tmdb.org/t/p/w500";
     const GetMovies =(pageNum) => {
       //  console.log(str)
@@ -35,23 +40,54 @@ export default function PopularMovie(){
 
         GetMovies(page);
     },[page])
+    useEffect(()=>{
+
+      //GetMovies(page);
+  },[])
+
 
     const Fav =useSelector(state=>state.addFav);
+
+    const selectNumCompletedTodos = createSelector(
+      (state) => state.addFav,
+      (addFav) => addFav.filter((add) =>{
+         console.log(add)
+         return add
+        }),
+    )
+
+    const numCompletedTodos = useSelector(selectNumCompletedTodos)
+     
+
+    const [favouritFilm,setfavouritFilm] =useState(Fav);
+
     const dispatch = useDispatch();
     const AddMovieToFav=(str)=>{
       dispatch(AddFav(str))
       console.log(str);
       console.log(Fav)
+      setfavouritFilm(Fav);  
+      localStorage.setItem('Fav', JSON.stringify(Fav));
+
     }
 
 
-    return (
+    return(
         <>
+         <Favourite/>
         <section className="popular-movie-section py-5">
+             
           <div className="container">
-            
-        <h1 className='text-danger'>{typeof(Fav)} ~ {Fav}</h1>
-        
+           {/* <div className='bg-warning'>
+           {Fav.map((movie)=>{
+       
+            return(
+                <>
+                  <FavouriteItem name={movie}/>
+                </>
+         )})}
+           </div> */}
+      
         <h1 className='text-lightColor'>{page}</h1>
          
          <div className="d-flex flex-row justify-content-between py-3">
@@ -86,9 +122,9 @@ export default function PopularMovie(){
          </div>
         
           </div>
-        </section>
-        
-         
+        </section>         
         </>
     )
-}
+  }
+
+ 

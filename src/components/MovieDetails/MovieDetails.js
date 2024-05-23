@@ -7,20 +7,20 @@ export default function MovieDetails(){
     const [movie , setMovie] = useState();
     const imgLink="https://image.tmdb.org/t/p/w500";
 
-    const GetMovie=(p)=>{
+    const GetMovie=(id)=>{
         console.log(param.id);
-        axios.get('https://api.themoviedb.org/3/movie/653346?api_key=1d4c9bdf63bc5c438f2c99f7d9c2c57a')
+        axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=1d4c9bdf63bc5c438f2c99f7d9c2c57a`)
         .then((res)=>{
-            console.log(res);
-            setMovie(res.data)
+           console.log(res);
+           setMovie(res.data)
         })
         .catch((err)=>{
             console.log(err);
         });
-    }
-    useEffect(()=>{
+    } 
+    useEffect(()=>{ 
         console.log(movie)
-        GetMovie(653346);
+        GetMovie(param.id);
         console.log(movie)
     },[])
 
@@ -68,7 +68,7 @@ export default function MovieDetails(){
                </div>
             </div>
         </div>
-    </div>
+    </div> 
     </>
 )
 

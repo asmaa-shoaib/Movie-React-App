@@ -23,6 +23,7 @@ export default function Naving(){
                 <NavItem styling='nav-link ' title='about' novToLink='/about'/>
                 <NavItem styling='nav-link' title='movies' novToLink='/movielist'/>
                 <NavItem styling='nav-link' title='profile' novToLink='/home'/>
+                <NavItem styling='nav-link' title='Favourite' novToLink='/fav'/>
               </Nav>
               <Form className="d-flex">
                 <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search"/>

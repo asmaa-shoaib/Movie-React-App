@@ -1,8 +1,9 @@
+import { useState } from "react"
 import AddFav from "../action/AddFav"
 
 
 const init ={
-    addFav:['sss']
+    addFav:[]
 }
 const add =(str)=>{
    return init.addFav.push(str)
@@ -13,7 +14,7 @@ export default function CompineReducer(state=init,action){
         case 'AddFav':
             return{
                 ...state,
-                addFav:add(action.payload),
+                addFav:[...state.addFav,action.payload],
             };
         default :
             return state;
