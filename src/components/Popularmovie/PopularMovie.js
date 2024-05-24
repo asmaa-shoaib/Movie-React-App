@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import AddFav from '../../store/action/AddFav';
 import FavouriteItem from '../FavouriteItem/FavouriteItem';
 import Favourite from '../Favourite/Favourite';
+import MovieCard from '../MovieCard/MovieCard';
 export default function PopularMovie(props){
     const [movies,setMovies] =useState([]);
     const [page,setPage] =useState(1);
@@ -56,22 +57,17 @@ export default function PopularMovie(props){
         }),
     )
 
-    const numCompletedTodos = useSelector(selectNumCompletedTodos)
-     
-
-    const [favouritFilm,setfavouritFilm] =useState(Fav);
-
+    const numCompletedTodos = useSelector(selectNumCompletedTodos);
+    const [favouritFilm,setfavouritFilm] =useState(Fav); 
     const dispatch = useDispatch();
+
     const AddMovieToFav=(str)=>{
-      dispatch(AddFav(str))
+      dispatch(AddFav(str));
       console.log(str);
       console.log(Fav)
       setfavouritFilm(Fav);  
       localStorage.setItem('Fav', JSON.stringify(Fav));
-
     }
-
-
     return(
         <>
          <Favourite/>
@@ -100,7 +96,7 @@ export default function PopularMovie(props){
          console.log(x);
             return(
                 <div className="col-lg-4 col-md-2 movie-container" key={movie.id}>
-                    <div class="card mb-3" >
+                    {/* <div class="card mb-3" >
                         <div class="row g-0">
                           <div class="col-md-4">
                             <img src={imgLink+movie.poster_path} class="img-fluid rounded-start" alt="..."/>
@@ -116,7 +112,8 @@ export default function PopularMovie(props){
                             </div>
                           </div>
                         </div>
-                    </div>
+                    </div> */}
+                    <MovieCard movie={movie} />
                 </div>
          )})}
          </div>
