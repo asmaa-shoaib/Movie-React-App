@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import './Favourite.scss'
-import FavouriteItem from '../FavouriteItem/FavouriteItem';
 import { useEffect } from 'react';
+import MovieCard from '../MovieCard/MovieCard';
 export default function Favourite(){
     
     //const Fav =useSelector(state=>state.addFav);
@@ -11,20 +11,18 @@ export default function Favourite(){
       console.log(Fav);
     })
     return(
-        <><div className='bg-warning'>
-        {Fav.map((movie)=>{
-    
-         return(
-             <>
-             <div className='row'>
-              <div className='col-md-6 col-lg-3'>
-                <FavouriteItem id={movie.id} movie={movie}/>
-              </div>
-             </div>
-               
-             </>
-      )})}
-
-        </div></>
+      <><div className='container '>
+         {Fav&&<div className='row py-5'>
+          {Fav.map((movie)=>{
+            return(
+               <>
+                <div className='col-md-6 col-lg-4' key={movie.id}>
+                  <MovieCard  id={movie} /> 
+                </div>  
+               </>
+            )
+          })}
+        </div>}
+      </div></>
     );
 }

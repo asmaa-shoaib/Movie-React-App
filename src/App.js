@@ -12,6 +12,7 @@ import TestDetails from './components/Test/TestDetails';
 import { Provider } from 'react-redux';
 import Store from './store/store/Store';
 import Favourite from './components/Favourite/Favourite';
+import Search from './components/Search/Search'
 export default function App() {
   return (
     <>
@@ -25,6 +26,7 @@ export default function App() {
           <Route path="/movielist/:id" element={<MovieDetails/>}/>
           <Route path="/test" element={<TestDetails/>}/>
           <Route path="/fav" element={<Favourite/>} />
+          <Route path="/search" element={<Search/>} />
           <Route path="*" element={<NotFound/>}/> 
        </Routes>
        </Provider>
