@@ -1,0 +1,25 @@
+@import './../../assets/Styles/color.scss';
+.vote-average{
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: rgba(0, 0, 0, 0.582);
+}
+.vote-average>div{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.302);
+    border: 2.5px solid $secondaryColor1;
+    small{
+        font-size: xx-small;
+    }
+}

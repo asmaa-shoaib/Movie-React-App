@@ -1,0 +1,16 @@
+@import './../../assets/Styles/color.scss';
+.result{
+    position: relative;
+    background-color:$lightColor;
+    box-shadow: 0px 0px 3px $lightColor2;
+    z-index: 10;
+    display: none;
+    .seach-result-item-container{
+
+        
+        .seach-result-item{
+            text-decoration: none;
+        }
+    }
+    
+}

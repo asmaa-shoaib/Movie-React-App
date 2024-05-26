@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createSelector } from 'reselect'
 import AddFav from '../../store/action/AddFav';
 import MovieCard from '../MovieCard/MovieCard';
+import Search from './../Search/Search';
 export default function PopularMovie(props){
     const [movies,setMovies] =useState([]);
     const [page,setPage] =useState(1);
@@ -59,6 +60,9 @@ export default function PopularMovie(props){
         <>
         <section className="popular-movie-section py-5"> 
           <div className='container'>     
+          <div className='search-part'>
+            <Search/>
+          </div>
             <h1 className='text-lightColor'>{page}</h1>
             <div className="d-flex flex-row justify-content-between py-3">
              <button onClick={()=>(prevPage())} className="btn btn-primary">previous</button>

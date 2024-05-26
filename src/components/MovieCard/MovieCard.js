@@ -1,3 +1,4 @@
+import './MovieCard.scss'
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -28,7 +29,40 @@ export default function MovieCard(props){
        {str.length>=Stringlength?str=str.slice(0,Stringlength)+'..':str=str}
        return str;
    }
-     
+     const changeDateFormate=(str)=>{
+      //Apr 24, 2024
+      //2024-03-27
+      let splitedDate=str.split('-');
+      let m='';
+      switch(splitedDate[1]){
+        case '01':
+           m='Jan'
+        case '02':
+           m='Feb'
+        case '03':
+           m='Mar'
+        case '04':
+           m='Apr'
+        case '05':
+           m='May'
+        case '06':
+           m='Jun'
+        case '07':
+           m='Jul'
+        case '08':
+           m='Ogu'
+        case '09':
+           m='Sep'
+        case '10':
+           m='Oct'
+        case '11':
+           m='Nov'
+        case '12':
+           m='Dec'
+      }
+      return  m +' '+splitedDate[2]+','+splitedDate[0]
+      
+     }
     const dispatch = useDispatch();  
     const Fav =useSelector(state=>state.addFav);
     const [favouritFilm,setfavouritFilm] =useState(Fav); 
@@ -45,16 +79,14 @@ export default function MovieCard(props){
         {movie&&<div class="card mb-3" > 
                         <div class="row g-0">
                           <div class="col-md-4">
-                            <img src={imgLink+movie.poster_path} class="img-fluid rounded-start" alt="..."/>
+                          <Link to={`/movielist/${props.id}`} ><img src={imgLink+movie.poster_path} class="img-fluid rounded-start" alt="..."/></Link>  
+                            
                           </div>
                           <div class="col-md-8">
                             <div class="card-body">
-                               <h5 class="card-title">{splitTallString(movie.original_title,15)}</h5>
-                              <p class="card-text" >{splitTallString(movie.original_title,20)}</p>
-                              
-                              <span class="card-text"><small class="text-body-secondary">{movie.vote_average}</small></span>
-                              <Link to={`/movielist/${props.id}`} >details</Link>  
-                              <Link to={`/test`}>details</Link>
+                              <h5 class="card-title">{splitTallString(movie.original_title,35)}</h5>
+                              <span class="card-text small text-lightColor2">{changeDateFormate(movie.release_date)}</span>
+                              <div class="rounded-circle vote-average"><div className='rounded-circle '><small class="text-white">{movie.vote_average}</small></div></div>
                               <button onClick={()=>(AddMovieToFav(props.id))} className='btn btn-primary'>Add to fav</button>
                             </div>
                           </div>
