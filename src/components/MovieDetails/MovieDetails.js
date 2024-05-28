@@ -2,6 +2,15 @@ import './MovieDetails.scss';
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom"
+import  wow from '../../assets/images/wow.svg'
+import  love from '../../assets/images/love.svg'
+import  smile from '../../assets/images/smile.svg'
+import  regularHeart from '../../assets/images/heart-regular.svg'
+import  solidHeart from '../../assets/images/heart-solid.svg'
+import  like from '../../assets/images/thumbs-up-solid (1).svg'
+import  list from '../../assets/images/list-check-solid.svg'
+import  bookmark from '../../assets/images/bookmark-solid.svg'
+
 
 export default function MovieDetails(){
     const param =useParams('id');
@@ -79,9 +88,9 @@ export default function MovieDetails(){
                         </div>
                         <div className="reaction">
                             <div className="btns d-flex ">
-                                <button className='bg-darkColor rounded-circle react-btn d-flex justify-content-center align-items-center '><img src="/src/assets/images/smile.svg"/></button>
-                                <button className='bg-darkColor rounded-circle react-btn d-flex justify-content-center align-items-center '><img src="/src/assets/images/love.png"/></button>
-                                <button className='bg-darkColor rounded-circle react-btn d-flex justify-content-center align-items-center '><img src="../assets/images/wow.svg"/></button>
+                                <button className='bg-darkColor rounded-circle react-btn d-flex justify-content-center align-items-center '><img src={smile}/></button>
+                                <button className='bg-darkColor rounded-circle react-btn d-flex justify-content-center align-items-center '><img src={love}/></button>
+                                <button className='bg-darkColor rounded-circle react-btn d-flex justify-content-center align-items-center '><img src={wow}/></button>
                             </div>
                         </div>
                         <div className="whats-your-vibe ">
@@ -90,9 +99,9 @@ export default function MovieDetails(){
                    </div>
                    <div className="d-flex w-50 justify-content-between  align-items-center">
                         <div className='action-btns'>
-                            <button className="btn rounded-circle bg-darkColor2"><span className="glyphicons_v2 thumbnails-list white">a</span></button>
-                            <button className="btn rounded-circle bg-darkColor2"><span className="glyphicons_v2 heart white false">a</span></button>
-                            <button className="btn rounded-circle bg-darkColor2"><span className="glyphicons_v2 bookmark white false">a</span></button>
+                            <button className="btn rounded-circle bg-darkColor2"><img src={like}/></button>
+                            <button className="btn rounded-circle bg-darkColor2"><img src={list}/></button>
+                            <button className="btn rounded-circle bg-darkColor2"><img src={bookmark}/></button>
                         </div>    
                    </div>
                    

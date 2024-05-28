@@ -4,6 +4,6 @@ import { Link } from 'react-router-dom';
 
 export default function NavItem(props){
     return (
-    <Link className={`${props.styling}`}  to={`${props.novToLink}`}>{props.title}</Link>
+    <Link className={`${props.styling} text-lightColor`}  to={`${props.novToLink}`}>{props.title.toLocaleUpperCase()}</Link>
   );
 }

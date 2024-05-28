@@ -35,11 +35,11 @@ export default function PopularMovie(props){
   },[])
 
 
-    const Fav =useSelector(state=>state.addFav);
+    const Fav =useSelector(state=>state.FavList);
 
     const selectNumCompletedTodos = createSelector(
-      (state) => state.addFav,
-      (addFav) => addFav.filter((add) =>{
+      (state) => state.FavList,
+      (FavList) => FavList.filter((add) =>{
          console.log(add)
          return add
         }),
@@ -63,11 +63,12 @@ export default function PopularMovie(props){
           <div className='search-part'>
             <Search/>
           </div>
-            <h1 className='text-lightColor'>{page}</h1>
             <div className="d-flex flex-row justify-content-between py-3">
              <button onClick={()=>(prevPage())} className="btn btn-primary">previous</button>
              <button onClick={()=>(nextPage())} className="btn btn-primary">next</button>
             </div>
+            
+            <p className='small text-lightColor'>page:{page}</p>
             <div className="row">
               {movies.map((movie)=>{
                 let x=splitTallSentences(movie.overview)

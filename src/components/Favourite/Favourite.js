@@ -4,8 +4,8 @@ import { useEffect } from 'react';
 import MovieCard from '../MovieCard/MovieCard';
 export default function Favourite(){
     
-    //const Fav =useSelector(state=>state.addFav);
-    const Fav =JSON.parse(localStorage.getItem('Fav'));
+    const Fav =useSelector(state=>state.FavList);
+    //const Fav =JSON.parse(localStorage.getItem('Fav'));
 
     useEffect(()=>{
       console.log(Fav);

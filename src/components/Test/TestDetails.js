@@ -14,10 +14,10 @@ export default function TestDetails(){
         fixedRate=(rate*10).toFixed();
         return fixedRate;
     }
-
+    
     return(
         <>
-        <section className=" movieDetails-section">
+        {/* <section className=" movieDetails-section">
         <div className='overlay w-100 h-100'>
 
             <div className="film-details container py-4 ">
@@ -70,10 +70,8 @@ export default function TestDetails(){
                 </div>
             </div>
             </div>
-        </section>
+        </section> */}
 
-
-        
         </>
     )
 }

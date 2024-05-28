@@ -3,23 +3,22 @@ import AddFav from "../action/AddFav"
 
 
 const init ={
-    addFav:[],
-    movies:[
-
-    ]
+    FavList:[],
+    movies:[]
 }
-const add =(str)=>{
-   return init.addFav.push(str)
-}
-
 export default function CompineReducer(state=init,action){
     switch(action.type){
         case 'AddFav':
             return{
                 ...state,
-                addFav:[...state.addFav,action.payload],
+                FavList:[...state.FavList,action.payload],
             };
-            case 'GetMovies':
+        case 'removeFav':
+             return{
+                 ...state,
+                 FavList:state.FavList.slice(0,state.FavList.indexOf(action.payload)).concat(state.FavList.slice(state.FavList.indexOf(action.payload)+1))
+             };
+        case 'GetMovies':
             return{
                 ...state,
                 movies:action.payload,
@@ -28,4 +27,6 @@ export default function CompineReducer(state=init,action){
             return state;
     }
 
-}
+} 
+
+//removeFav

@@ -8,7 +8,7 @@
 }
 .bg-secondaryColor1{
     background: $secondaryColor1;
-}
+} 
 .bg-secondaryColor2{
     background: $secondaryColor2;
 }
@@ -22,7 +22,7 @@
 }
 .text-darkColor2{
     color: $darkColor2;
-}
+} 
 .text-secondaryColor1{
     color: $secondaryColor1;
 }
@@ -30,7 +30,7 @@
     color: $secondaryColor2;
 }
 .text-lightColor{
-    color: $lightColor;
+    color: $lightColor !important;
 }
 .text-lightColor2{
     color: $lightColor2;
